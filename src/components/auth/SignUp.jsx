@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { postSignUpApi } from '../../Api/api';
 
@@ -78,6 +78,7 @@ const SignUp = () => {
       <Button type="submit" onClick={onSingUpHandler} disabled={!isCheckValid}>
         회원가입
       </Button>
+      <Link to="/login">로그인</Link>
     </SignInWrapper>
   );
 };

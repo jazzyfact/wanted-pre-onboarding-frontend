@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { postLoginApi } from '../../Api/api';
 
@@ -45,7 +45,7 @@ const Login = () => {
       postLoginApi({ email, password })
         .then((response) => {
           window.localStorage.setItem('token', response.data.access_token);
-          navigate('/main');
+          navigate('/');
         })
         .catch((error) => alert(error.response.data.message));
     } catch (error) {
@@ -78,6 +78,7 @@ const Login = () => {
         <Button type="submit" onClick={onLoginHandler} disabled={!isCheckValid}>
           로그인
         </Button>
+        <Link to="/signup">회원가입</Link>
       </LoginWrapper>
     </>
   );
